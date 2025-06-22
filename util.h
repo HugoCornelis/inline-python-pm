@@ -33,6 +33,7 @@ extern "C" {
 # define aTHX
 #endif
 
+#define I_PY_DEBUG
 #ifdef I_PY_DEBUG
 #define Printf(x) printf x
 #else
