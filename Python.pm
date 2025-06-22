@@ -194,8 +194,6 @@ sub build {
 
     $alread_imported->{functions} = { %{$alread_imported->{functions}}, %$new_functions };
 
-    print STDERR Dumper( { namespace_2 => \%namespace, alread_imported => $alread_imported } );
-
     my $new_classes = $namespace{classes};
 
     my $keys = [ keys %$new_classes ];
