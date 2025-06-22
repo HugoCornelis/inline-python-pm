@@ -182,10 +182,6 @@ sub build {
     # Study the main namespace
     my %namespace = py_study_package('__main__');
 
-    use Data::Dumper;
-
-    print STDERR Dumper( { namespace_1 => \%namespace, alread_imported => $alread_imported } );
-
     my $new_functions = $namespace{functions};
 
     $new_functions = { map { $_ => 1 } grep { not $alread_imported->{functions}->{$_} } @$new_functions };
@@ -214,8 +210,6 @@ sub build {
     $namespace{classes} = $new_classes;
 
     $alread_imported->{classes} = { %{$alread_imported->{classes}}, %$new_classes };
-
-    print STDERR Dumper( { namespace_3 => \%namespace, alread_imported => $alread_imported } );
 
     # Cache the results
     require Inline::denter;
