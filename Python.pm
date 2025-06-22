@@ -184,11 +184,11 @@ sub build {
 
     my $new_functions = $namespace{functions};
 
-    $new_functions = { map { $_ => 1 } grep { not $alread_imported->{functions}->{$_} } @$new_functions };
+    $new_functions = [ grep { not $alread_imported->{functions}->{$_} } @$new_functions ];
 
     $namespace{functions} = $new_functions;
 
-    $alread_imported->{functions} = { %{$alread_imported->{functions}}, %$new_functions };
+    $alread_imported->{functions} = { %{$alread_imported->{functions}}, map { $_ => 1 } @$new_functions };
 
     my $new_classes = $namespace{classes};
 
