@@ -198,11 +198,7 @@ sub build {
 
     my $new_classes = $namespace{classes};
 
-    print STDERR Dumper( { namespace_21 => \%namespace, alread_imported => $alread_imported } );
-
     my $keys = [ keys %$new_classes ];
-
-    print STDERR Dumper( { namespace_22 => \%namespace, keys => $keys } );
 
     $new_classes
 	= {
@@ -213,10 +209,6 @@ sub build {
 	   grep
 	   {
 	       not $alread_imported->{classes}->{$_}
-	   }
-	   map
-	   {
-	       print STDERR Dumper( "key: $_\n" );
 	   }
 	   keys %$new_classes
 	  };
